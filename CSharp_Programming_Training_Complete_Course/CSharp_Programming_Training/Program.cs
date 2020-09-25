@@ -1,31 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 
-namespace QA_CSharp_Training
+namespace QA_CSharp_Programming_Training
 {
     public class Program
     {
+        static readonly Dictionary<int, string> examplesAvailable = new Dictionary<int, string> ()
+        {
+            { 1, "ExecuteListInitExample"},
+            { 2, "ExecuteSimpleDelegateExample"}
+        };
+
+        static readonly Dictionary<int, string> namesapcesAvailable = new Dictionary<int, string>()
+        {
+            { 1, "QA_CSharp_Programming_Training.Collections.ListExamples"},
+            { 2, "QA_CSharp_Programming_Training.Delegates.DelegatesExamples"}
+        };
+
         static void Main(string[] args)
         {
-            List<Employee> employees = new List<Employee> 
+            bool endApp = false;
+
+            Console.WriteLine("Welcome to C# Examples!");
+            Console.WriteLine("-----------------------");
+
+            while (!endApp)
             {
-                new Employee {Name ="Roxanne" },
-                new Employee {Name ="Alex" }
-            };
+                PrintMenu();
 
+                Console.Write("Type the number of the example you will like to execute, and then press Enter: ");
+                string option = Console.ReadLine();                
 
-            employees.Add(new Employee ("Dani"));
+                if (int.TryParse(option, out int optionToInt))
+                {
+                    InvokeMenuMethod(optionToInt);
+                }
+                else
+                {
+                    Console.WriteLine("This is not valid input. Please enter an integer next time");
+                }
 
-            foreach (var employee in employees)
-            {
-                Console.WriteLine(employee.Name);
+                Console.WriteLine("------------------------");
+                Console.WriteLine("Press any key or 'exit' if you don't want to execute more examples: ");
+
+                if (Console.ReadLine().Equals("exit")) { endApp = true; }
             }
+        }
 
+        static void InvokeMenuMethod(int menuOption)
+        {
+            Type t = Type.GetType(namesapcesAvailable[menuOption]);
+            ConstructorInfo magicConstructor = t.GetConstructor(Type.EmptyTypes);
+            object magicClassObject = magicConstructor.Invoke(new object[] { });
 
-            for (int i =0; i< employees.Count; i++)
+            var exampleMethod = t.GetMethod(examplesAvailable[menuOption]);
+            exampleMethod.Invoke(magicClassObject, null);
+        }
+
+        static void PrintMenu()
+        {
+            foreach (var exampleName in examplesAvailable)
             {
-                Console.WriteLine(employees[i].Name);
+                Console.WriteLine($"{exampleName.Key}) {exampleName.Value}");
             }
+            Console.WriteLine("------------------------");
         }
     }
 }

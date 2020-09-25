@@ -1,4 +1,4 @@
-﻿namespace QA_CSharp_Training
+﻿namespace QA_CSharp_Programming_Training
 {
     public class Employee
     {

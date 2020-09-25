@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>QA_CSharp_Training</RootNamespace>
+    <RootNamespace>QA_CSharp_Programming_Training</RootNamespace>
   </PropertyGroup>
 
 </Project>
