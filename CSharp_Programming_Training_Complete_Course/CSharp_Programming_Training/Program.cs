@@ -12,7 +12,7 @@ namespace QA_CSharp_Programming_Training
             { 2, "ExecuteSimpleDelegateExample"}
         };
 
-        static readonly Dictionary<int, string> namesapcesAvailable = new Dictionary<int, string>()
+        static readonly Dictionary<int, string> namespacesAvailable = new Dictionary<int, string>()
         {
             { 1, "QA_CSharp_Programming_Training.Collections.ListExamples"},
             { 2, "QA_CSharp_Programming_Training.Delegates.DelegatesExamples"}
