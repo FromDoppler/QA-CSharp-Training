@@ -9,13 +9,15 @@ namespace QA_CSharp_Programming_Training
         static readonly Dictionary<int, string> examplesAvailable = new Dictionary<int, string> ()
         {
             { 1, "ExecuteListInitExample"},
-            { 2, "ExecuteSimpleDelegateExample"}
+            { 2, "ExecuteSimpleDelegateExample"},
+            { 3, "ExecuteSimpleDictionaryExample"}
         };
 
         static readonly Dictionary<int, string> namespacesAvailable = new Dictionary<int, string>()
         {
             { 1, "QA_CSharp_Programming_Training.Collections.ListExamples"},
-            { 2, "QA_CSharp_Programming_Training.Delegates.DelegatesExamples"}
+            { 2, "QA_CSharp_Programming_Training.Delegates.DelegatesExamples"},
+            { 3, "QA_CSharp_Programming_Training.Collections.DictionaryExamples"}
         };
 
         static void Main(string[] args)
@@ -50,7 +52,7 @@ namespace QA_CSharp_Programming_Training
 
         static void InvokeMenuMethod(int menuOption)
         {
-            Type t = Type.GetType(namesapcesAvailable[menuOption]);
+            Type t = Type.GetType(namespacesAvailable[menuOption]);
             ConstructorInfo magicConstructor = t.GetConstructor(Type.EmptyTypes);
             object magicClassObject = magicConstructor.Invoke(new object[] { });
 
