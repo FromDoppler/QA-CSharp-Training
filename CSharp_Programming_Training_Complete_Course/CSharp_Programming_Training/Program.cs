@@ -10,14 +10,16 @@ namespace QA_CSharp_Programming_Training
         {
             { 1, "ExecuteListInitExample"},
             { 2, "ExecuteSimpleDelegateExample"},
-            { 3, "ExecuteSimpleDictionaryExample"}
+            { 3, "ExecuteSimpleDictionaryExample"},
+            { 4, "ExecuteSimpleQueueExample"}
         };
 
         static readonly Dictionary<int, string> namespacesAvailable = new Dictionary<int, string>()
         {
             { 1, "QA_CSharp_Programming_Training.Collections.ListExamples"},
             { 2, "QA_CSharp_Programming_Training.Delegates.DelegatesExamples"},
-            { 3, "QA_CSharp_Programming_Training.Collections.DictionaryExamples"}
+            { 3, "QA_CSharp_Programming_Training.Collections.DictionaryExamples"},
+            { 4, "QA_CSharp_Programming_Training.Collections.QueueExamples"}
         };
 
         static void Main(string[] args)
